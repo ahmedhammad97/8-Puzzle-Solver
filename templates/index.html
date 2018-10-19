@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>8 Puzzle Solver</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "styles.css" %}">
+  </head>
+  <body>
+    <center>
+
+      <br />
+      <h1>8 Puzzle Solver</h1>
+      <br /><br /><br />
+
+      <div id="sec1">
+          <label>Please enter numbers of initial state seperated by comma's</label>
+          <br /><br />
+          <input id="in" type="text" name="grid" placeholder="Ex. 1,4,2,3,0,5,6,7,8">
+          <br /><br /><br />
+          <select id="sel">
+            <option value="bfs">Breadth First Search</option>
+            <option value="dfs">Depth Fisrt Search</option>
+            <option value="astarM">A* - Manhattan Distance</option>
+            <option value="astarE">A* - Euclidean Distance</option>
+          </select>
+          <br /><br /><br /><br />
+          <button id="btn">Solve!</button>
+      </div>
+
+      <div id="sec2">
+        
+      </div>
+
+    </center>
+
+    <footer>
+      <center>
+        Made by: Salma Tharwat 	•  Amr Saleh   	•    Ahmed Hammad
+      </center>
+    </footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% load static %}
+    <script type="text/javascript" src="{% static "script.js" %}"></script>
+  </body>
+</html>
