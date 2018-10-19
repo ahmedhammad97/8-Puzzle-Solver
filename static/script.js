@@ -1,10 +1,12 @@
 $('#btn').on('click', function(){
   grid = $('#in').val()
   if(validateGrid(grid)){
-    $('#sec1').fadeOut("slow", function(){$('#sec2').fadeIn("slow", function(){
-      $('#code').text(grid)
-      sendToServer(grid, $('#sel').val())
-    })})
+    $('#curtains').fadeIn(400,function(){
+      $('#sec1').fadeOut("slow", function(){$('#sec2').fadeIn("slow", function(){
+        $('#code').text(grid)
+        sendToServer(grid, $('#sel').val())
+      })})
+    })
   }else{
     alert("Wrong format .. Please fix the input")
   }
@@ -25,6 +27,7 @@ function sendToServer(grid, type){
         data: { grid : grid, type : type}
       })
         .done(function( msg ) {
+            $('#curtains').fadeOut()
             if(msg=="Failed :("){
               alert("Something Wrong Happened!");
             }
