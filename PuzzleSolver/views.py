@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
+from .solver import Solution, Heuristics
 
 def index(request):
     return render(request, 'index.html')
@@ -16,20 +17,28 @@ def solve(request):
 
         for i in range(0,3):
             for j in range(0,3):
-                newGrid[i][j] = grid[(i*3)+j]
+                newGrid[i][j] = int(grid[(i*3)+j])
+
+        gridTuple = tuple(tuple(i) for i in newGrid)
+        problem = Solution.Solution(gridTuple)
+        result = None
 
         if type == "bfs":
-            #BFS Function
+            result = problem.BFS()
         elif type == "dfs":
-            #DFS Function
+            result = problem.DFS()
         elif type == "astarM":
-            #AStar Manhattan Function
+            result = problem.AStar(Heuristics.manhattanDistance)
         elif type == "astarE":
-            #AStar Euclidean Function
+            result = problem.AStar(Heuristics.euclideanDistance)
         else:
             return HttpRequest("Failed :(")
 
+        #Process result
+        actions = []
+        for node in result:
+            actions.append(node.action)
 
-        #return HttpResponse(request.POST['type'])
+        return HttpResponse(' '.join(actions))
     else:
         return HttpRequest("Failed :(")

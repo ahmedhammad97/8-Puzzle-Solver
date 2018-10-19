@@ -22,6 +22,6 @@ function sendToServer(grid, type){
         data: { grid : grid, type : type}
       })
         .done(function( msg ) {
-            alert(msg);
+            console.log(msg)
         });
 }
