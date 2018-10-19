@@ -56,6 +56,31 @@ button:hover{
   font-size: 25px;
   height: 45px;
 }
+#sec1{
+  display: block;
+}
+
+#sec2{
+  display: none;
+}
+table{
+  width: 400px;
+  height: 400px;
+  font-size: 50px;
+  text-align: center;
+  background-color: lightblue;
+  color: #2b2b2b;
+}
+table, td, tr{
+  font-weight: bold;
+  border: 5px solid #2b2b2b;
+  border-collapse: collapse;
+}
+#again{
+  width: 300px;
+  background-color: lightpink;
+  display: none;
+}
 
 
 footer{

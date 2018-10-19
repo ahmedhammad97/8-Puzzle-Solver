@@ -2,4 +2,4 @@ Actions : ['Up', 'Left']
 Cost : 2
 Nodes Expanded : 10
 Depth : 2
-Runtime : 0.004799365997314453
+Runtime : 0.0019145011901855469
