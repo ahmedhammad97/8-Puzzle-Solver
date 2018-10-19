@@ -81,6 +81,7 @@ class Solution:
         expanded = 0
         PQueue = PriorityQueue()
         visited = set()
+        queueGrids = set() #Grids In Queue But Not Visited Yet
         PQueue.put((heuristic(self.initialState) ,self.initialState))
 
         while(not PQueue.empty()):
@@ -89,6 +90,14 @@ class Solution:
 
             if front.grid in visited: #Visited Before
                 continue
+
+            if front.grid in queueGrids: #Found in Queue
+                for node in PQueue.queue:
+                    grid = node[1].grid
+
+                    if grid == front.grid:
+                        if node[0] < front.cost + heuristic(node[1]):
+                            node[0] = front.cost + heuristic(node[1])
 
             #Processing
             if front.isGoal():
@@ -99,6 +108,7 @@ class Solution:
 
             visited.add(front.grid)
             expanded+=1
+            queueGrids.add(front.grid)
 
             children = front.generateChildren() #Expanding
             for child in children:
