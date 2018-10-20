@@ -96,7 +96,7 @@ class Solution:
                     grid = node[1].grid
 
                     if grid == front.grid:
-                        if node[0] < front.cost + heuristic(node[1]):
+                        if node[0] > front.cost + heuristic(node[1]):
                             node[0] = front.cost + heuristic(node[1])
 
             #Processing
